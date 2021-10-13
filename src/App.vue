@@ -2,6 +2,9 @@
 	import { mapMutations } from 'vuex'
     export default {
         onLaunch: function() {
+			wx.cloud.init({
+				traceUser: true
+			});
             console.log('App Launch');
             // #ifdef APP-PLUS
             // App平台检测升级，服务端代码是通过uniCloud的云函数实现的，详情可参考：https://ext.dcloud.net.cn/plugin?id=2226
