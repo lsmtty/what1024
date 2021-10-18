@@ -1,0 +1,66 @@
+<template>
+    <view class="page-view">
+        <text class="view-score">{{score}}</text>
+        <text class="view-tip">{{showText}}</text>
+        <button @tap="gotoMain" class="view-button" type="primary">回到首页</button>
+    </view>
+    
+</template>
+<script>
+    import Data from './topic.json';
+    export default {
+        data() {
+            return {
+                score: 0,
+                showText: ''
+            }
+        },
+        onLoad(query) {
+            this.score = query.score;
+            for(let i = 0 ;i < Data.scoresDegree.length ; i++) {
+                let { score, text} = Data.scoresDegree[i];
+                if (i === Data.scoresDegree.length - 1) {
+                    this.showText = text;
+                    break;
+                } else {
+                    if (score >= this.score && score < Data.scoresDegree[i + 1].score) {
+                        this.showText = text;
+                        break;
+                    }
+                } 
+            }
+        },
+        methods: {
+            gotoMain() {
+                 uni.navigateBack({
+					delta: 2
+				});
+            }
+        }
+    }
+</script>
+<style lang="less">
+.page-view {
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .view-score {
+        color: red;
+        font-size: 96rpx;
+        margin-top: 120rpx;
+        font-family: PingFang-Regular;
+    }
+    .view-tip {
+        color: #333;
+        font-size: 48rpx;
+        margin-top: 48rpx;
+        font-family: PingFang-SC;
+    }
+    .view-button {
+        width: 280rpx;
+        margin-top: 200rpx;
+    }
+}
+</style>

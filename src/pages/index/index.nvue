@@ -1,0 +1,44 @@
+<template>
+    <view class="main-view">
+        <view class="content-view">
+            <button class="test-button" type="default" @tap="handleToTest">互联网黑话等级考试</button>
+            <button open-type="feedback" type="primary">宝贵意见</button>
+        </view>
+    </view>
+</template>
+
+<script>
+    export default {
+        data() {
+            return {
+
+            }
+        },
+        onLoad(query) {
+            this.errMsg = query.errMsg || ''
+        },
+        methods: {
+            handleToTest: () => {
+                uni.navigateTo({
+					url: '/pages/webTest/index'
+				});
+            }
+        }
+    }
+</script>
+
+<style>
+    .main-view {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .main-view .content-view {
+        width: 60%;
+    }
+    .test-button {
+        margin-bottom: 160rpx;
+    }
+</style>

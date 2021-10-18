@@ -57,6 +57,19 @@
         {
           "name": "pages/updateRecordSuccess/index",
           "pathName": "pages/updateRecordSuccess/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/tabBar/component/component",
+          "pathName": "pages/tabBar/component/component",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/webTest/index",
+          "pathName": "pages/webTest/index",
+          "query": "",
           "scene": null
         }
       ]

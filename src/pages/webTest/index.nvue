@@ -1,0 +1,167 @@
+<template>
+    <view class="tip-page" v-if="isEnter">
+        <view class="view-tip">
+            本套测试题来自互联网权威黑话指南，适用于任何等级评定。（共8题，满分100分，答对一道单选题加10分，多选题加20分，答错或少答不加分。）
+        </view>
+        <button class="view-button" @tap="handleStart" type="primary">开始测试</button>
+    </view>
+    <view v-else class="topic-page">
+        <view class="topic-view">
+            <view class="topic-question">{{questionData.topics[showTopicIndex].question}}</view>
+            <view class="topic-answers" v-if="questionData.topics[showTopicIndex].simple">
+                <radio-group @change="radioChange">
+                    <label class="uni-list-cell uni-list-cell-pd answer-item" v-for="(item) in questionData.topics[showTopicIndex].answers" :key="item">
+                        <view>
+                            <radio :value="item.value" :checked="item.value === currentChooseData" />
+                        </view>
+                        <view>{{item.title}}</view>
+                    </label>
+                </radio-group>
+            </view>
+            <view v-else>
+                <checkbox-group @change="checkboxChange">
+					<label class="uni-list-cell uni-list-cell-pd answer-item" v-for="(item) in questionData.topics[showTopicIndex].answers" :key="item">
+						<checkbox :value="item.value" :checked="Array.isArray(currentChooseData) ? currentChooseData.includes(item.value) : false" />{{item.title}}
+					</label>
+				</checkbox-group>
+            </view>
+        </view>
+        <view class="control-view">
+            <button class="normal-button" style="margin-right: 20rpx" :disabled="showTopicIndex === 0" type="default" @tap="handlePrew">上一题</button>
+            <button class="normal-button" type="primary" @tap="handleNext">{{showTopicIndex === questionData.topics.length - 1 ? '提交答案' : '下一题'}}</button>
+        </view>
+    </view>
+</template>
+
+<script>
+    import Data from './topic.json';
+    export default {
+        data() {
+            return {
+                isEnter: true,
+                showTopicIndex: 0,
+                answers: [],
+                questionData: Data,
+            }
+        },
+        computed: {
+            currentChooseData() {
+                return this.answers[this.showTopicIndex];
+            }
+        },
+        methods: {
+            handleStart: function () {
+                this.isEnter = false;
+                console.log(Data);
+            },
+            handlePrew: function () {
+                if(this.showTopicIndex !== 0) {
+                    this.showTopicIndex = this.showTopicIndex - 1;
+                }
+            },
+            handleNext: function () {
+                if (this.showTopicIndex !== this.questionData.topics.length - 1) {
+                    this.showTopicIndex = this.showTopicIndex + 1;
+                } else {
+                    let emptyAnswers = [];
+                    this.answers.forEach((item, index) => {
+                        if (item === undefined) {
+                            emptyAnswers.push(index + 1);
+                        }
+                    });
+                    let scoreCount = 0;
+                    Array.isArray(this.questionData.topics) && this.questionData.topics.forEach((questionItem, index) => {
+                        const { result, simple } = questionItem;
+                        let rightFlag = false;
+                        if (simple) {
+                            rightFlag = this.answers[index] === result[0];
+                        } else {
+                        rightFlag = JSON.stringify(this.answers[index]) ===  JSON.stringify(result);
+                        }
+                        if (rightFlag) {
+                            scoreCount += simple ? 10: 20;
+                        }
+                    })
+                    uni.showModal({
+                        title: '确定提交答案吗?',
+                        content: emptyAnswers.length === 0 ? '' : `您还有${emptyAnswers.join(',')}题未答`,
+                        showCancel: true,
+                        success: (res) => {
+                            if (!res.confirm) {
+                                return;
+                            }
+                            uni.navigateTo({
+                                url: `/pages/webTest/result?score=${scoreCount}`
+                            });
+                        }
+                    })
+                }
+            },
+            radioChange(evt) {
+                this.answers[this.showTopicIndex] = evt.detail.value;
+            },
+            checkboxChange(evt) {
+                this.answers[this.showTopicIndex] = evt.detail.value.sort((a, b) => {return a.localeCompare(b)});
+            }
+        }
+    }
+</script>
+
+<style lang="less">
+    .tip-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .view-tip {
+            font-size: 32rpx;
+            width: 83.3%;
+            text-align: center;
+            margin-bottom: 120rpx;
+            color: #333;
+            font-family: PingFang-Regular;
+        }
+        .view-button {
+            width: 280rpx;
+        }
+    }
+    .topic-page {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        overflow-y: auto;
+        .topic-view {
+            width: 83.3%;
+            padding-top: 24rpx;
+            .topic-question {
+                font-size: 32rpx;
+                text-align: left;
+                font-family: PingFang-Regular;
+                margin-bottom: 20rpx;
+            }
+            .topic-answers {
+                text-align: left;
+                font-family: PingFang-SC;
+                margin-bottom: 20rpx;
+            }
+            .uni-list-cell {
+                justify-content: flex-start;
+                font-size: 28rpx;
+                &::after {
+                    height: 0;
+                }
+            }
+        }
+        .control-view {
+            display: flex;
+            flex-direction: row;
+            margin-top: 24rpx;
+            .normal-button {
+                width: 260rpx;
+            }
+        }
+    }
+</style>

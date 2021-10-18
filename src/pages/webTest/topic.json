@@ -1,0 +1,118 @@
+{
+   "topics": [
+       {
+            "question": "1、领导对小李说：“这个项目需要其他业务赋能，你和业务的同学拉通对齐一下。”请问，领导是什么意思？",
+            "simple": true,
+            "answers": [
+                {"title": "A、咨询别人的合作意愿", "value": "A"},
+                {"title": "B、要站着把资源嫖到手", "value": "B"},
+                {"title": "C、快去抱爸爸们的大腿", "value": "C"},
+                {"title": "D、和其他部门共创共赢", "value": "D"}
+            ],
+            "result": ["D"]
+       },
+       {
+            "question": "2、小李联系到了小刘，小刘一上来就问：“你们的底层逻辑是什么？以什么为抓手？能给业务带来什么？”请问，小刘为啥这么问？",
+            "simple": true,
+            "answers": [
+                {"title": "A、没毛病，是互联网人下意识的反应", "value": "A"},
+                {"title": "B、通过challenge小李，抢占话语权", "value": "B"},
+                {"title": "C、不直接拒绝，但想让小快知难而退", "value": "C"},
+                {"title": "D、小刘就想拽两句黑话", "value": "D"}
+            ],
+            "result": ["C"]
+        },
+        {
+            "question": "3、双方达成合作，项目推进过程中，小刘在群里和小李发生如下对话：<br>【小刘】：链路打通了吗？先发出来看看呗～<br>【小李】：不是下周给吗？<br>【小刘】：先看看 万一要优化呢？<br>&nbsp; ……<br>&nbsp; 请问，互联网人小李应该如何回复？<br><br>",
+            "simple": true,
+            "answers": [
+                {"title": "A、你是活不到下周了？", "value": "A"},
+                {"title": "B、我们按照排期走哈", "value": "B"},
+                {"title": "C、在输出，晚点给到", "value": "C"},
+                {"title": "D、说下周就下周，现在没空", "value": "D"}
+            ],
+            "result": ["B"]
+        },
+        {
+            "question": "4、领导认为，这次传播要从用户底层逻辑为项目赋能，撬动私域流量，发力资源置换，联动踝部KOL，用矩阵式打法制造可落地的引爆点。请问，领导是什么意思？",
+            "simple": true,
+            "answers": [
+                {"title": "A、搞点不花钱的路子", "value": "A"},
+                {"title": "B、这回咱玩个大的", "value": "B"},
+                {"title": "C、没想好咋做，先说点形而上的", "value": "C"},
+                {"title": "D、没什么意思，他刚刚放了一个屁", "value": "D"}
+            ],
+            "result": ["C"]
+        },
+        {
+            "question": "5、项目推进中，小快发现同事在下班后开辟新赛道，深耕大厂员工的品牌势能，在垂直领域打造了自己的生态，达成企业赋能个人的业务闭环。请问下班后，同事在做什么？",
+            "simple": true,
+            "answers": [
+                {"title": "A、学习其他的职业技能", "value": "A"},
+                {"title": "B、在内卷", "value": "B"},
+                {"title": "C、身兼公司多个项目", "value": "C"},
+                {"title": "D、接私活", "value": "D"}
+            ],
+            "result": ["D"]
+        },
+        {
+            "question": "6、距离DDL没剩几天了，小刘拖项目后腿，又在群里响应不及时，小李在群里暴走：“现在咬合不顺利，又push不下去，我要上升了！”请问小李接下来要做什么？",
+            "simple": false,
+            "answers": [
+                {"title": "A、去医院量血压", "value": "A"},
+                {"title": "B、往群里摇人进来battle", "value": "B"},
+                {"title": "C、以后都拉领导参会", "value": "C"},
+                {"title": "D、在周报里告状", "value": "D"},
+                {"title": "E、公司内网通晒小刘", "value": "E"},
+                {"title": "F、他要拉小刘一起上天台", "value": "F"}
+            ],
+            "result": ["CDE"]
+        },
+        {
+            "question": "7、终于项目上线了，然而大老板却说：“这个项目没什么体感。”请问，大老板为什么这么说？",
+            "simple": true,
+            "answers": [
+                {"title": "A、项目不够有温度", "value": "A"},
+                {"title": "B、他没有在朋友圈刷到", "value": "B"},
+                {"title": "C、市场反响不好", "value": "C"},
+                {"title": "D、项目不合他的心意", "value": "D"}
+            ],
+            "result": ["B"]
+        },
+        {
+            "question": "8、最后，小李的同事被优化了，于是那位同学以私域流量为抓手，在公司的关键路径上布局，联动KOC，通过全平台的矩阵投放，形成组合拳。请问，以上翻译成人话，是什么意思？",
+            "simple": false,
+            "answers": [
+                {"title": "A、在朋友圈骂公司", "value": "A"},
+                {"title": "B、在公司内网上发帖", "value": "B"},
+                {"title": "C、在脉脉上和辞职的人一起骂公司", "value": "C"},
+                {"title": "D、去公司门口堵人", "value": "D"},
+                {"title": "E、找人把领导捶一顿", "value": "E"},
+                {"title": "F、把公司员工加上，方便自己做微商", "value": "F"}
+            ],
+            "result": ["A", "B", "C"]
+        }
+   ],
+   "scoresDegree": [
+        {
+           "score": 60,
+           "text": "再接再厉"
+        },
+        {
+            "score": 70,
+            "text": "再接再厉1"
+        },
+        {
+            "score": 80,
+            "text": "再接再厉2"
+        },
+        {
+            "score": 90,
+            "text": "再接再厉3"
+        },
+        {
+            "score": 100,
+            "text": "我怀疑你是互联网来砸场子的"
+        }
+   ]
+}
