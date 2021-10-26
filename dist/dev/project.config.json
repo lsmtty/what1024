@@ -35,9 +35,9 @@
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "disableUseStrict": false,
+    "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "minifyWXML": true
+    "useCompilerPlugins": false
   },
   "appid": "wx129b644cccdfd7ac",
   "projectname": "miniprogram-1",

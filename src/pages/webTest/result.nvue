@@ -1,10 +1,11 @@
 <template>
     <view class="page-view">
+        <image class="bg-image" src="/static/webTest/test-bg.png"></image>
         <text class="view-score">{{score}}</text>
         <text class="view-tip">{{showText}}</text>
+        <text class="view-message">{{showMessage}}</text>
         <button @tap="gotoMain" class="view-button" type="primary">回到首页</button>
     </view>
-    
 </template>
 <script>
     import Data from './topic.json';
@@ -12,19 +13,22 @@
         data() {
             return {
                 score: 0,
-                showText: ''
+                showText: '',
+                showMessage: ''
             }
         },
         onLoad(query) {
             this.score = query.score;
             for(let i = 0 ;i < Data.scoresDegree.length ; i++) {
-                let { score, text} = Data.scoresDegree[i];
+                let { score, text, message } = Data.scoresDegree[i];
                 if (i === Data.scoresDegree.length - 1) {
                     this.showText = text;
+                    this.showMessage = message;
                     break;
                 } else {
                     if (score >= this.score && score < Data.scoresDegree[i + 1].score) {
                         this.showText = text;
+                        this.showMessage = message;
                         break;
                     }
                 } 
@@ -46,8 +50,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    .bg-image {
+        position: absolute;
+        left:0 ;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
     .view-score {
-        color: red;
+        color: #ff5858;
+        font-weight: bold;
         font-size: 96rpx;
         margin-top: 120rpx;
         font-family: PingFang-Regular;
@@ -57,6 +70,10 @@
         font-size: 48rpx;
         margin-top: 48rpx;
         font-family: PingFang-SC;
+    }
+    .view-message {
+        font-family: Microsoft YaHei;
+        margin-top: 32rpx;
     }
     .view-button {
         width: 280rpx;

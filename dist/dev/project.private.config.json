@@ -71,6 +71,12 @@
           "pathName": "pages/webTest/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/webTest/result",
+          "pathName": "pages/webTest/result",
+          "query": "score=70",
+          "scene": null
         }
       ]
     }

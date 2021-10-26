@@ -1,9 +1,10 @@
 <template>
     <view class="main-view">
+        <image class="bg-image" src="/static/webTest/bg.png"></image>
         <view class="content-view">
-            <button class="test-button" type="default" @tap="handleToTest">互联网黑话等级考试</button>
-            <button open-type="feedback" type="primary">宝贵意见</button>
+            <button class="test-button" type="primary" @tap="handleToTest">互联网黑话等级考试</button>
         </view>
+        <button class="feedback-button" size="small" open-type="feedback" type="default" >意见</button>
     </view>
 </template>
 
@@ -27,18 +28,36 @@
     }
 </script>
 
-<style>
+<style lang="less">
     .main-view {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         height: 100%;
+        position: relative;
+        .content-view {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            margin-top: 30%;
+        }
+        .feedback-button {
+            position: absolute;
+            bottom: 32rpx;
+            right: 32rpx;
+            width: 100rpx;
+            height: 100rpx;
+            font-size: 24rpx;
+            border-radius: 50rpx;
+            background: #ffd600;
+            padding: 23rpx 0;
+        }
+        .bg-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
     }
-    .main-view .content-view {
-        width: 60%;
-    }
-    .test-button {
-        margin-bottom: 160rpx;
-    }
+    
 </style>
